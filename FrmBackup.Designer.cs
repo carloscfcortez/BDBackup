@@ -39,12 +39,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.chkIntegratedSecurity = new System.Windows.Forms.CheckBox();
             this.btnConnect = new System.Windows.Forms.Button();
+            this.chkJob = new System.Windows.Forms.CheckBox();
+            this.grdDatabases = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDatabases)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExecBackup
             // 
             this.btnExecBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnExecBackup.Location = new System.Drawing.Point(15, 231);
+            this.btnExecBackup.Location = new System.Drawing.Point(15, 190);
             this.btnExecBackup.Name = "btnExecBackup";
             this.btnExecBackup.Size = new System.Drawing.Size(86, 44);
             this.btnExecBackup.TabIndex = 0;
@@ -56,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(122, 231);
+            this.label1.Location = new System.Drawing.Point(122, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 1;
@@ -65,7 +68,7 @@
             // txtDirectory
             // 
             this.txtDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtDirectory.Location = new System.Drawing.Point(125, 251);
+            this.txtDirectory.Location = new System.Drawing.Point(125, 210);
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(353, 23);
             this.txtDirectory.TabIndex = 2;
@@ -149,11 +152,32 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // Form1
+            // chkJob
+            // 
+            this.chkJob.AutoSize = true;
+            this.chkJob.Location = new System.Drawing.Point(522, 214);
+            this.chkJob.Name = "chkJob";
+            this.chkJob.Size = new System.Drawing.Size(73, 17);
+            this.chkJob.TabIndex = 11;
+            this.chkJob.Text = "Ativar Job";
+            this.chkJob.UseVisualStyleBackColor = true;
+            this.chkJob.CheckedChanged += new System.EventHandler(this.chkJob_CheckedChanged);
+            // 
+            // grdDatabases
+            // 
+            this.grdDatabases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDatabases.Location = new System.Drawing.Point(15, 256);
+            this.grdDatabases.Name = "grdDatabases";
+            this.grdDatabases.Size = new System.Drawing.Size(802, 204);
+            this.grdDatabases.TabIndex = 12;
+            // 
+            // FrmBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 448);
+            this.ClientSize = new System.Drawing.Size(829, 472);
+            this.Controls.Add(this.grdDatabases);
+            this.Controls.Add(this.chkJob);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.chkIntegratedSecurity);
             this.Controls.Add(this.txtPassword);
@@ -165,8 +189,9 @@
             this.Controls.Add(this.txtDirectory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExecBackup);
-            this.Name = "Form1";
+            this.Name = "FrmBackup";
             this.Text = "BACKUP DATABASE SQL SERVER";
+            ((System.ComponentModel.ISupportInitialize)(this.grdDatabases)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +210,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkIntegratedSecurity;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.CheckBox chkJob;
+        private System.Windows.Forms.DataGridView grdDatabases;
     }
 }
 

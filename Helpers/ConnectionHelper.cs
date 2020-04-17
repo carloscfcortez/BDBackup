@@ -12,7 +12,7 @@ namespace BDBak.Helpers
     {
         public static SqlConnection Conn { get; set; }
 
-       
+
         public static void LoadConnectionString(string dataSource, string initialCatalog, bool integratedSecureity, string userId = null
             , string password = null)
         {
@@ -20,7 +20,7 @@ namespace BDBak.Helpers
 
             if (integratedSecureity)
             {
-                
+
                 sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
                 {
                     InitialCatalog = initialCatalog,
@@ -46,8 +46,7 @@ namespace BDBak.Helpers
 
         public static void LoadConnectionString(SqlConnectionStringBuilder sqlConnectionStringBuilder)
         {
-            if (Conn == null)
-                Conn = (new SqlConnection() { ConnectionString = sqlConnectionStringBuilder.ConnectionString });
+            Conn = (new SqlConnection() { ConnectionString = sqlConnectionStringBuilder.ConnectionString });
         }
 
         public static void OpenConnection()
