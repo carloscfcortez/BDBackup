@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDBak.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,21 +36,15 @@ namespace BDBak
                 if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
 
 
-                SqlConnectionStringBuilder builderCon = new SqlConnectionStringBuilder()
-                {
-                    InitialCatalog = "SPF",
-                    DataSource = "localhost",
-                    IntegratedSecurity = true
-                };
-
-                SqlConnection conn = new SqlConnection(builderCon.ConnectionString);
+                ConnectionHelper.LoadConnectionString(txtDataSource.Text, "SPF", chkIntegratedSecurity.Checked, txtUserID.Text, txtPassword.Text);
+                
                 SqlCommand cmd = new SqlCommand();
 
 
-                conn.Open();
+                ConnectionHelper.OpenConnection();
 
 
-                cmd.Connection = conn;
+                cmd.Connection = ConnectionHelper.Conn;
                 cmd.CommandText = $@"BACKUP DATABASE [SPF] TO  DISK = N'{fileName}' WITH NOFORMAT, NOINIT,  NAME = N'{fileName}', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
 
                 cmd.ExecuteNonQuery();
@@ -57,7 +52,8 @@ namespace BDBak
 
                 MessageBox.Show("Backup realizado com sucesso!");
 
-                conn.Close();
+
+                ConnectionHelper.CloseConnection();
 
 
             }
